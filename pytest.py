@@ -4,12 +4,12 @@ import time;
 class Item(): #class for getting the price of an item
     def __init__(self, url):
         self.url = url;
+        self.r = requests.get(url);
         self.price = 0;
         self.pprice = 0;
         self.ppprice = 0;
     def getPrice(self): #method that gets item price and returns it as a float
-        r = requests.get(self.url);
-        content = r.content.decode("utf-8");
+        content = self.r.content.decode("utf-8");
         if "median_price" in content:
             data = content.split(":");
             temp = data[len(data)-1];
@@ -50,7 +50,7 @@ output = open("Output.txt","w",encoding='utf-8');
 while 1==1:
 
     for i in itemList:
-        time.sleep(2);
+        time.sleep(5);
         tempPrice = i.getPrice();
         tempAvg = i.getAvg();
         print(tempPrice, end = "   "); #temporary for testing
