@@ -18,6 +18,7 @@ class Item(): #class for getting the price of an item
             temp = temp.replace("u20ac","");
             temp = temp.replace("}","");
             temp = temp.replace(",","."); #replace some crap to format it correctly
+            temp = temp.replace("-","0");
             self.price = float(temp);
             self.ppprice = self.pprice;
             self.pprice = self.price;
@@ -52,10 +53,11 @@ while 1==1:
         time.sleep(2);
         tempPrice = i.getPrice();
         tempAvg = i.getAvg();
-        print(tempPrice); #temporary for testing
+        print(tempPrice, end = "   "); #temporary for testing
+        print(i.getUrl());
         if tempPrice>tempAvg*3 and tempPrice >0 and tempAvg>0:
-            print(i.getUrl); #add item to the txt later
-            output.write(i.getUrl);
+            print(i.getUrl()); #add item to the txt later
+            output.write(i.getUrl());
 
 
     #time.sleep(10000) #add this later
