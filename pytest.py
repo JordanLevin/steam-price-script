@@ -49,15 +49,15 @@ file.close();
 output = open("Output.txt","w",encoding='utf-8');
 while 1==1:
 
-    for i in itemList:
-        time.sleep(2);
-        tempPrice = i.getPrice();
-        tempAvg = i.getAvg();
+    for i in range(1284,len(itemList)):
+        time.sleep(1);
+        tempPrice = itemList[i].getPrice();
+        tempAvg = itemList[i].getAvg();
         print(tempPrice, end = "   "); #temporary for testing
-        print(i.getUrl());
+        print(itemList[i].getUrl());
         if tempPrice>tempAvg*3 and tempPrice >0 and tempAvg>0:
-            print(i.getUrl()); #add item to the txt later
-            output.write(i.getUrl());
+            print(itemList[i].getUrl()); #add item to the txt later
+            output.write(itemList[i].getUrl());
 
 
     #time.sleep(10000) #add this later
