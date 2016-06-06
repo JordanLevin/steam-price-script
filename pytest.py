@@ -50,7 +50,7 @@ output = open("Output.txt","w",encoding='utf-8');
 while 1==1:
 
     for i in range(1284,len(itemList)):
-        time.sleep(1);
+        time.sleep(5);
         tempPrice = itemList[i].getPrice();
         tempAvg = itemList[i].getAvg();
         print(tempPrice, end = "   "); #temporary for testing
